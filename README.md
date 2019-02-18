@@ -30,14 +30,13 @@ ou
 | Ferramenta | Link para download |
 |------------|--------------------|
 |Java Development Kit 8 64 bits para Windows 7 | (http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) |
-| Maven 3.3.9 para Windows | (https://maven.apache.org/download.cgi) |
-| IDE Spring STS 64 bits para Windows 7 | (https://spring.io/tools/sts/all) |
-| Spring Boot 2.0.3.RELEASE | (https://start.spring.io/) |
+| Maven 3.5.3 | (https://maven.apache.org/download.cgi) |
+| Eclipse IDE jee 2018 | (https://spring.io/tools/sts/all) |
+| Lombok v1.18.6 "Envious Ferret" | (https://projectlombok.org/) |
+| Spring Boot 2.1.3.RELEASE | (https://start.spring.io/) |
 | Curl 64 bits para Windows 7 | (https://curl.haxx.se/download.html#Win64) |
-| Redis 3.0.503 64 bits para Windows 7 | (https://github.com/MicrosoftArchive/redis/releases) |
 | MongoDB 3.4 Community para Windows 7 | (https://www.mongodb.com/download-center?#atlas)|
 
-> (Redis é utilizado como cache e como fila pub/sub para posterior processamento das informações do clima)  
 
 ## Infraestrutura adicional
 
@@ -49,15 +48,6 @@ ou
 	server.port=8080
 ```
 
-### Redis
-* É necessário baixar e instalar o Redis em qualquer máquina.
-* O IP e a porta da máquina em que será instalado o Redis deverá ser incluido no arquivo de propriedade src/main/resources/application.properties, conforme abaixo:
-
-```
-	spring.redis.host=127.0.0.1
-	spring.redis.port=6379
-```
-		
 ### MongoDB
 
 * É necessário baixar e instalar o MongoDB em qualquer máquina.
@@ -72,12 +62,11 @@ ou
 
 1. Baixar e instalar o Java 1.8 ou superior
 2. Baixar e instalar o Maven 3.3.9 ou superior
-3. Iniciar o Redis 3.0 ou superior
-4. Iniciar o MongoDB 3.4 ou superior
-5. Baixar os fontes
+3. Iniciar o MongoDB 3.4 ou superior
+4. Baixar os fontes
 ```
-git clone https://github.com/p5f8/clienterest.git
-cd clienterest
+git clone https://github.com/felixneto/ProvaUOL.git
+cd ProvaUOL
 ```
 6. Verificar arquivo src/main/resources/application.properties
 
@@ -92,34 +81,31 @@ cd clienterest
 mvn clean install
 ```
 
-	> Dentro da pasta target, verificar a existência do arquivo com nome: platcorp-0.0.1.jar
+	> Dentro da pasta target, verificar a existência do arquivo com nome: ProvaFelix-0.0.1-SNAPSHOT.jar
 
 8. Para executar
 
 	> Entrar na pasta target criada no passo anterior e executar o comando abaixo
 ``` 
-	java -jar platcorp-0.0.1.jar
+	java -jar ProvaFelix-0.0.1-SNAPSHOT.jar
 ``` 
 	
 
 ## Instruções para ambiente de produção
 
 - [ ]  JDK 8 ou superior deve estar instalado na máquina que a aplicacao platcorp irá rodar
-- [ ]  Redis deve estar rodando
 - [ ]  MongoDB deve estar rodando
 - [ ]  Liberar portas no firewall, conforme [Infraestrutura adicional](#infraestrutura-adicional)
-- [ ]  Criar uma pasta com nome "**platcorp**" 
 - [ ]  Copiar o arquivo gerado na seção [Como executar, testar, empacotar e entregar o projeto](#como-executar-testar-empacotar-e-entregar-o-projeto)
 - [ ]  Executar o comando: 
 ```
-java -jar platcorp-0.0.1.jar
+java -jar ProvaFelix-0.0.1-SNAPSHOT.jar
 ```
 - [ ]  Para verificar se o serviço está rodando execute:
 ```
 curl -X GET "http://localhost:8080/manage/health"
 ```
 - [ ]  Retornou '{"status":"UP"}' no passo anterior? Tudo Ok e funcionando, pode utilizar todas as urls descritas em na seção [Como usar](#como-usar). 
-- [ ]  Não funcionou? mande um e-mail com a mensagem de erro para p5f8@hotmail.com. Obrigado.
 
 ## Instruções para monitoramento
 
@@ -129,10 +115,4 @@ curl -X GET "http://localhost:8080/manage/health"
 ```
 - [ ] Logs de INFO são gerados no stdout padrão (console)
 - [ ] Logs de ERROR são gerados no stderr padrão (console)
-- [ ]  Não funcionou? mande um e-mail com a mensagem de erro para p5f8@hotmail.com. Obrigado.
 
-## TODO
-
-- Incluir Docker no projeto
-- Aumentar cobertura de testes unitários
-- Incluir teste integrado dos componentes services
