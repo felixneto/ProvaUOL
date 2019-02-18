@@ -8,19 +8,15 @@
 
 ## Como usar 
 
-* [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
-
-ou
-
 
 | O quê você deseja fazer | Comando curl   | Resposta |
 |-------------------------|----------------|----------|
 | Verificar se o serviço está ativo | curl -X GET "http://localhost:8080/manage/health" | Mensagem json em caso de sucesso, caso demore mais de 5 segundos o retorno o serviço está fora do ar |
-|Criar um cliente (o id é gerado na saída do comando) | curl -X POST -H "Content-Type: application/json" -d '{"nome":"Pablo Silva", "idade" : 39 }' "http://localhost:8080/cliente" | cliente em formato json com id gerado automaticamente |
-| Atualizar um cliente (é necessário informar o id) | curl -X PUT -H "Content-Type: application/json" -d '{"id" : 30, "nome":"Almerita Silva", "idade" : 79 }' "http://localhost:8080/cliente" | cliente em formato json atualizado |
-| Consultar um cliente (é necessário informar o id gerado pelo POST) | curl -X GET -H "Content-Type: application/json" "http://localhost:8080/cliente/5b2ff494c5518e628ca0d381" | cliente em formato json |
-| Apagar um cliente (é necessário informar o id) | curl -X DELETE -H "Content-Type: application/json" "http://localhost:8080/cliente/30" | mensagem "ok" de confirmacao de cliente excluido da base | 
-| Listar todos os clientes da base | curl -X GET -H "Content-Type: application/json" "http://localhost:8080/cliente/listall" | array de todos os clientes em formato json |
+|Criar um cliente (o id é gerado na saída do comando) | curl -X POST -H "Content-Type: application/json" -d '{"name":"Pablo Silva", "age" : 39 }' "http://localhost:8080/customer" | cliente em formato json com id gerado automaticamente |
+| Atualizar um cliente (é necessário informar o id) | curl -X PUT -H "Content-Type: application/json" -d '{"id" : 30, "name":"Almerita Silva", "age" : 79 }' "http://localhost:8080/customer" | cliente em formato json atualizado |
+| Consultar um cliente (é necessário informar o id gerado pelo POST) | curl -X GET -H "Content-Type: application/json" "http://localhost:8080/customer/5b2ff494c5518e628ca0d381" | cliente em formato json |
+| Apagar um cliente (é necessário informar o id) | curl -X DELETE -H "Content-Type: application/json" "http://localhost:8080/customer/30" | mensagem "Customer removed" de confirmacao de cliente excluido da base | 
+| Listar todos os clientes da base | curl -X GET -H "Content-Type: application/json" "http://localhost:8080/customer/list" | array de todos os clientes em formato json |
  
 
 
@@ -31,11 +27,11 @@ ou
 |------------|--------------------|
 |Java Development Kit 8 64 bits para Windows 7 | (http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) |
 | Maven 3.5.3 | (https://maven.apache.org/download.cgi) |
-| Eclipse IDE jee 2018 | (https://spring.io/tools/sts/all) |
+| Eclipse IDE jee 2018 | (https://www.eclipse.org/downloads/) |
 | Lombok v1.18.6 "Envious Ferret" | (https://projectlombok.org/) |
 | Spring Boot 2.1.3.RELEASE | (https://start.spring.io/) |
-| Curl 64 bits para Windows 7 | (https://curl.haxx.se/download.html#Win64) |
-| MongoDB 3.4 Community para Windows 7 | (https://www.mongodb.com/download-center?#atlas)|
+| Curl 64 bits para Windows 10 | (https://curl.haxx.se/download.html#Win64) |
+| MongoDB Community para Windows 10 | (https://www.mongodb.com/download-center?#atlas)|
 
 
 ## Infraestrutura adicional
@@ -72,8 +68,6 @@ cd ProvaUOL
 
 	> Confirmar a porta do Serviço (porta padrão é 8080)
 	 
-	> Confirmar IP e Porta do Redis (IP padrão 127.0.0.1 e porta 6379)
-	
 	> Confirmar IP e Porta do MongoDB (IP padrão 127.0.0.1 e porta 27017)
 
 7. Gerar o pacote Java em formato Jar
